@@ -1,10 +1,9 @@
 # DismissibleHelpers #
 
-[![Build Status](https://secure.travis-ci.org/dockyard/dismissible_helpers.png?branch=master)](http://travis-ci.org/dockyard/dismissibile_helpers)
-[![Dependency Status](https://gemnasium.com/dockyard/dismissible_helpers.png?travis)](https://gemnasium.com/dockyard/dismissible_helpers)
-[![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/dockyard/dismissibile_helpers)
+[![Build Status](https://secure.travis-ci.org/dockyard/dismissible_helpers.png?branch=master)](http://travis-ci.org/dockyard/dismissible_helpers)
+[![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/dockyard/dismissible_helpers)
 
-Dead simple drop in authentication for Rails 3.2+
+
 
 ## Installation ##
 
