@@ -1,3 +1,3 @@
 class DismissedHelpersController < ApplicationController
-  include DismissibleHelpers::Controllers::DismissibleHelpers
+  include DismissibleHelpers::Controllers::DismissedHelpers
 end
