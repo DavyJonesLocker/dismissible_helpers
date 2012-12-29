@@ -7,7 +7,6 @@ rvm:
 
 before_script:
   - cp spec/dummy/config/database.yml.example spec/dummy/config/database.yml
-  - rake db:migrate
 
 notifications:
   email: 
