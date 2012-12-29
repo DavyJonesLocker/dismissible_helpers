@@ -1,0 +1,14 @@
+rvm:
+  - 1.8.7
+  - 1.9.2
+  - 1.9.3
+  - jruby-18mode
+  - jruby-19mode
+
+before_script:
+  - cp spec/dummy/config/database.yml.example spec/dummy/config/database.yml
+  - rake db:migrate
+
+notifications:
+  email: 
+    - git@danmcclain.net

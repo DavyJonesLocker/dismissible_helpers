@@ -69,11 +69,10 @@ end
 Your model does not need to be called Account, it just needs the
 `dismissed\_helpers` attribute.
 
-
+### Retrieving the current account/user ###
 
 If the helper method `current_account` is available, DismissibleHelpers
-will use this to retrieve the current user/account. If the current user
-has an attribute
+will use this to retrieve the current user/account.
 
 
 ## What you get ##
