@@ -3,7 +3,7 @@ require File.expand_path('../boot', __FILE__)
 require 'rails/all'
 
 Bundler.require
-require "dismissible_helpers"
+require 'dismissible_helpers'
 
 module Dummy
   class Application < Rails::Application
