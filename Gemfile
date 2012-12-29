@@ -9,11 +9,12 @@ gemspec
 gem 'jquery-rails'
 gem 'coffee-rails'
 
-# Declare any dependencies that are still in development here instead of in
-# your gemspec. These might include edge Rails or gems from your path or
-# Git. Remember to move these dependencies to your gemspec before releasing
-# your gem to rubygems.org.
+unless ENV['CI']
+  if RUBY_PLATFORM =~ /java/
+    gem 'ruby-debug'
+  elsif RUBY_VERSION == '1.9.3'
+    gem 'debugger'
+  end
+end
 
-# To use debugger
-gem 'debugger'
-
+gem 'fivemat'
