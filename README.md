@@ -71,7 +71,7 @@ Your model does not need to be called Account, it just needs the
 
 ### Retrieving the current account/user ###
 
-If the helper method `current_account` is available, DismissibleHelpers
+If the helper method `current_user` is available, DismissibleHelpers
 will use this to retrieve the current user/account.
 
 
