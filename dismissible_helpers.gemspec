@@ -18,7 +18,11 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'rails', '~> 3.2.9'
 
-  s.add_development_dependency 'sqlite3'
+  if RUBY_PLATFORM =~ /java/
+    s.add_development_dependency 'jdbc-sqlite3'
+  else
+    s.add_development_dependency 'sqlite3'
+  end
   s.add_development_dependency 'rspec-rails'
   s.add_development_dependency 'capybara'
   s.add_development_dependency 'fakeweb'
