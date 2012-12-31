@@ -22,10 +22,12 @@ the dismissed helpers.
 
 ### Using authenticated user ###
 
-DismissibleHelpers will store the dismissed helpers on a model. The
-model should have an attribute called `dismissed_helpers` which should
-be an array type. You can use ActiveRecord's serialization to achive
-this:
+DismissibleHelpers will store the dismissed helpers on a model. 
+If the helper method `current_user` is available, DismissibleHelpers
+will use this to retrieve the current user/account.
+
+The model should have an attribute called `dismissed_helpers` which should
+be an array type. You can use ActiveRecord's serialization to achieve this:
 
  1 Add this `dismissed_helpers` column as a `text` column
 
@@ -68,15 +70,6 @@ end
 
 Your model does not need to be called Account, it just needs the
 `dismissed\_helpers` attribute.
-
-### Retrieving the current account/user ###
-
-If the helper method `current_user` is available, DismissibleHelpers
-will use this to retrieve the current user/account.
-
-
-## What you get ##
-
 
 ## Authors ##
 
