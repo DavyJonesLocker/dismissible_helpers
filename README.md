@@ -39,7 +39,7 @@ help text if it has not been dismissed by the user. The string passed to
 the method will be processed by the I18n method `t`, so the content of
 the help message should be stored in your localization file.
 
-```ruby
+```html
 <h2>Sample Page</h2>
 <%= render_dismissible_helper 'sample_page.help_text' %>
 ```
@@ -53,8 +53,8 @@ Add `dismissible_helper_routes` to your `config/routes.rb` file.
 Add the following to your `app/assets/javascripts/application.js`
 
 ```javascript
-\\ Your other require file statements
-\\= require dismissed_helpers
+// Your other require file statements
+//= require dismissed_helpers
 
 $(function(){
   $('.dismissible').dismissible(); //The view helper applies a
