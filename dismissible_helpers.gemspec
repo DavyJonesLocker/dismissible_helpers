@@ -7,11 +7,11 @@ require 'dismissible_helpers/version'
 Gem::Specification.new do |s|
   s.name        = 'dismissible_helpers'
   s.version     = DismissibleHelpers::VERSION
-  s.authors     = ['TODO: Your name']
-  s.email       = ['TODO: Your email']
-  s.homepage    = 'TODO'
-  s.summary     = 'TODO: Summary of DismissibleHelpers.'
-  s.description = 'TODO: Description of DismissibleHelpers.'
+  s.authors     = ['Dan McClain']
+  s.email       = ['git@danmcclain.net']
+  s.homepage    = ''
+  s.summary     = 'Simple Dismissible help text for your Rails projects'
+  s.description = 'Simple Dismissible help text for your Rails projects'
 
   s.files = Dir['{app,config,db,lib}/**/*'] + ['Rakefile', 'README.rdoc']
   s.test_files = Dir['spec/**/*']

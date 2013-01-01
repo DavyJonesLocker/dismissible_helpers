@@ -13,13 +13,69 @@ In your Gemfile add the following:
 gem 'dismissible_helpers'
 ```
 
+## What you get ##
+
 ## Usage ##
+
+DismissibleHelpers includes:
+
+  * DismissibleHelpers View Helper - Renders the helper only if the
+visitor has not dismissed it
+  * DismissedHelpers Routes and controller - Handles the JavaScript
+requests to store the dismissal state
+  * DismissedHelpers Javascript - Handles the front end interactions
+with the helpers
 
 ### Default Behavior ###
 
 By default, DismissibleHelpers will use cookies to track the state of
 the dismissed helpers. 
 
+### Adding a dismissible helper to your page ###
+
+To add a dismissible helper to the page, call
+`render_dismissible_helper`. This helper method will only display the
+help text if it has not been dismissed by the user. The string passed to
+the method will be processed by the I18n method `t`, so the content of
+the help message should be stored in your localization file.
+
+```ruby
+<h2>Sample Page</h2>
+<%= render_dismissible_helper 'sample_page.help_text' %>
+```
+
+### Including the routes ###
+
+Add `dismissible_helper_routes` to your `config/routes.rb` file.
+
+### Including the JavaScript ##
+
+Add the following to your `app/assets/javascripts/application.js`
+
+```javascript
+\\ Your other require file statements
+\\= require dismissed_helpers
+
+$(function(){
+  $('.dismissible').dismissible(); //The view helper applies a
+                                   //'dismissible' class to each helper div
+});
+```
+
+By default, the dismissed helper is removed from the page via
+`$().remove()`. This can be customized by passing a callback to the
+`.dismissible()` call. To use jQuery's `.slideUp()` you would use the
+following call'
+
+```javascript
+$(function(){
+  $('.dismissible').dismissible({
+    success: function(helper){
+      helper.slideUp(); //'helper' is the jQuery-wrapped element
+    }
+  });
+});
+```
 ### Using authenticated user ###
 
 DismissibleHelpers will store the dismissed helpers on a model. 
@@ -52,7 +108,7 @@ end
 ```
 
 If you are using PostgreSQL as your database, you could use
-`postgres\_ext` to add native array support to your models. You would
+`postgres_ext` to add native array support to your models. You would
 just need the following migration to add the dismissed_helpers attribute
 to your model:
 
@@ -69,7 +125,7 @@ end
 ```
 
 Your model does not need to be called Account, it just needs the
-`dismissed\_helpers` attribute.
+`dismissed_helpers` attribute.
 
 ## Authors ##
 
