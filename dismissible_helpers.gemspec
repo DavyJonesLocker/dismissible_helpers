@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.summary     = 'Simple Dismissible help text for your Rails projects'
   s.description = 'Simple Dismissible help text for your Rails projects'
 
-  s.files = Dir['{app,config,db,lib}/**/*'] + ['Rakefile', 'README.rdoc']
+  s.files = Dir['{app,config,db,lib}/**/*'] + ['Rakefile', 'README.md']
   s.test_files = Dir['spec/**/*']
 
   s.add_dependency 'rails', '~> 3.2.9'
