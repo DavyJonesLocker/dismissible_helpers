@@ -1,6 +1,6 @@
 module DismissibleHelpers::Controllers::DismissedHelpers
   def create
-    if respond_to?(:current_account) && current_user && current_user.respond_to?(:dismissed_helpers)
+    if respond_to?(:current_user) && current_user && current_user.respond_to?(:dismissed_helpers)
       current_user.dismissed_helpers += [ params[:helper] ]
       current_user.save!
     else
