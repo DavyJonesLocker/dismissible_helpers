@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    dismissible_helpers (0.1.1)
+    dismissible_helpers (0.1.2)
       rails (~> 3.2.0)
 
 GEM
