@@ -5,6 +5,7 @@ module DismissibleHelpers::Helpers::DismissibleHelpers
         html = t(name)
         html << "\n"
         html << content_tag(:a, 'Close', :class => 'close', :href => '#')
+        html.html_safe
       end
     end
   end
