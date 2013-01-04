@@ -6,16 +6,19 @@
     else
       closeSelector = '.close'
 
-    @find(closeSelector).click (event)  =>
+    @find(closeSelector).click (event)  ->
+      $target = $ event.target
+      $helper = $target.parent()
       event.preventDefault()
-      @.dismiss(options)
+
+      $helper.dismiss(options)
 
   $.fn.dismiss = (options) ->
     name = @.attr('data-dismissible-name') 
     $.ajax
       url:       '/dismissed_helpers'
       type:      'POST'
-      dataType: 'json'
+      dataType:  'json'
       data:
         helper: name
       success: =>
