@@ -5,12 +5,12 @@ module DismissibleHelpers::Controllers::DismissedHelpers
       current_user.save!
     else
       if cookies[:dismissed_helpers].present?
-        dismissed_helpers = YAML.load cookies[:dismissed_helpers]
+        dismissed_helpers = cookies[:dismissed_helpers].split '|'
         dismissed_helpers += [params[:helper]]
       else
         dismissed_helpers = [params[:helper]]
       end
-      cookies[:dismissed_helpers] = dismissed_helpers.to_yaml
+      cookies[:dismissed_helpers] = dismissed_helpers.join '|'
     end
 
     render :json => {}, :status => :ok

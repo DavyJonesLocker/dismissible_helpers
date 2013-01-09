@@ -17,7 +17,7 @@ module DismissibleHelpers::Helpers::DismissibleHelpers
       dismissed_helpers = current_user.dismissed_helpers
     else
       if cookies[:dismissed_helpers].present?
-        dismissed_helpers = YAML.load cookies[:dismissed_helpers]
+        dismissed_helpers = cookies[:dismissed_helpers].split '|'
       else
         dismissed_helpers = []
       end
