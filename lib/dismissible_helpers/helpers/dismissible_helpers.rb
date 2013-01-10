@@ -13,7 +13,7 @@ module DismissibleHelpers::Helpers::DismissibleHelpers
   private
 
   def has_been_dismissed?(name)
-    if respond_to?(:current_account) && current_user && current_user.respond_to?(:dismissed_helpers)
+    if respond_to?(:current_user) && current_user && current_user.respond_to?(:dismissed_helpers)
       dismissed_helpers = current_user.dismissed_helpers
     else
       if cookies[:dismissed_helpers].present?
