@@ -6,6 +6,7 @@ module DismissibleHelpers
   autoload :Controllers
   autoload :Routes
   autoload :Helpers
+  autoload :ContentBuilder
 end
 
 ActionDispatch::Routing::Mapper.send(:include, DismissibleHelpers::Routes)

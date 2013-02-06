@@ -1,12 +1,7 @@
 module DismissibleHelpers::Helpers::DismissibleHelpers
   def render_dismissible_helper(name)
     unless has_been_dismissed?(name)
-      content_tag :div, :class => 'dismissible', :data => { :dismissible_name => name } do
-        html = t(name)
-        html << "\n"
-        html << content_tag(:a, 'Close', :class => 'close', :href => '#')
-        html.html_safe
-      end
+      DismissibleHelpers::ContentBuilder.build(name)
     end
   end
 
