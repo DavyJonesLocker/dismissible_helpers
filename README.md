@@ -35,14 +35,29 @@ the dismissed helpers.
 
 To add a dismissible helper to the page, call
 `render_dismissible_helper`. This helper method will only display the
-help text if it has not been dismissed by the user. The string passed to
-the method will be processed by the I18n method `t`, so the content of
-the help message should be stored in your localization file.
+help text if it has not been dismissed by the user.
+
+#### Without a block
+
+The string passed to the method will be processed by the I18n method `t`, so the content of the help message should be stored in your localization file.
 
 ```erb
 <h2>Sample Page</h2>
 <%= render_dismissible_helper 'sample_page.help_text' %>
 ```
+
+#### With a block
+
+The string passed to the method will be used as a key, to track whether or not the user has dismissed it. The contents of the block will appear inside the dismissible div. This is particularly useful if you want to have a more complex structure in the block.
+
+```erb
+<%= render_dismissible_helper 'how_to_buy' do %>
+  <h2>How to buy stuff</h2>
+  <p>To buy stuff, click look at this:</p>
+  <img src="http://domain.com/img.jpg">
+<% end %>
+```
+
 
 ### Including the routes ###
 
@@ -54,7 +69,7 @@ Add the following to your `app/assets/javascripts/application.js`
 
 ```javascript
 // Your other require file statements
-//= require dismissed_helpers
+//= require dismissible_helpers
 
 $(function(){
   $('.dismissible').dismissible(); //The view helper applies a

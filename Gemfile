@@ -20,3 +20,7 @@ unless ENV['CI']
 end
 
 gem 'fivemat'
+
+group :development, :test do
+  gem 'haml-rails'
+end
