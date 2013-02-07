@@ -7,9 +7,9 @@ class DismissibleHelpers::ContentBuilder
     self.new(*args).build
   end
 
-  def initialize(name, block=nil)
+  def initialize(name, contents=nil)
     @name = name
-    @block = block
+    @contents = contents
   end
 
   def build
@@ -23,8 +23,8 @@ class DismissibleHelpers::ContentBuilder
   private
 
   def content_str
-    @content_str ||= if @block
-                       @block.call
+    @content_str ||= if @contents
+                       @contents
                      else
                        t(@name)
                      end

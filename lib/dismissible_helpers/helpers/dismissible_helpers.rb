@@ -2,7 +2,8 @@ module DismissibleHelpers::Helpers::DismissibleHelpers
 
   def render_dismissible_helper(name, &block)
     unless dismissed?(name)
-      DismissibleHelpers::ContentBuilder.build(name, block)
+      contents = block_given? ? capture(&block) : nil
+      DismissibleHelpers::ContentBuilder.build(name, contents)
     end
   end
 

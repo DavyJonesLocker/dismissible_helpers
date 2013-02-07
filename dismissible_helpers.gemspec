@@ -34,4 +34,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'mocha', '~> 0.10.5'
   s.add_development_dependency 'pry'
   s.add_development_dependency 'launchy'
+  s.add_development_dependency 'haml-rails', '0.3.5'
 end
