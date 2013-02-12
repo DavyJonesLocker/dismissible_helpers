@@ -46,7 +46,7 @@ the help message should be stored in your localization file.
 
 ### Including the routes ###
 
-Add `dismissible_helper_routes` to your `config/routes.rb` file.
+Add `dismissible_helpers_routes` to your `config/routes.rb` file.
 
 ### Including the JavaScript ##
 
