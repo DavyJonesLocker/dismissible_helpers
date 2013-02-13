@@ -46,7 +46,7 @@ the help message should be stored in your localization file.
 
 ### Including the routes ###
 
-Add `dismissible_helpers_routes` to your `config/routes.rb` file.
+Add `dismissible_helper_routes` to your `config/routes.rb` file.
 
 ### Including the JavaScript ##
 
@@ -54,7 +54,7 @@ Add the following to your `app/assets/javascripts/application.js`
 
 ```javascript
 // Your other require file statements
-//= require dismissed_helpers
+//= require dismissible_helpers
 
 $(function(){
   $('.dismissible').dismissible(); //The view helper applies a
