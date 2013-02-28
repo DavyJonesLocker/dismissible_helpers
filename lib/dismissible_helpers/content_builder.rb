@@ -31,7 +31,7 @@ class DismissibleHelpers::ContentBuilder
   end
 
   def close_str
-    content_tag(:a, 'Close', :class => 'close', :href => '#')
+    content_tag(:a, I18n.t(:"dismissible_helpers.actions.close"), :class => 'close', :href => '#')
   end
 
 end
