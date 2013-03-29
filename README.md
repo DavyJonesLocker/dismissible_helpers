@@ -29,7 +29,7 @@ with the helpers
 ### Default Behavior ###
 
 By default, DismissibleHelpers will use cookies to track the state of
-the dismissed helpers. 
+the dismissed helpers.
 
 ### Adding a dismissible helper to your page ###
 
@@ -58,6 +58,19 @@ The string passed to the method will be used as a key, to track whether or not t
 <% end %>
 ```
 
+#### Restoring helpers
+
+You can allow users to restore a helper if you pass `restorable: true` as an argument after the name of the helper.
+
+```erb
+<%= render_dismissible_helper 'how_to_buy', restorable: true do %>
+  <h2>How to buy stuff</h2>
+  <p>To buy stuff, click look at this:</p>
+  <img src="http://domain.com/img.jpg">
+<% end %>
+```
+
+This will allow the user to hide the helper, as well as display a restore link to display the helper again.
 
 ### Including the routes ###
 
@@ -85,15 +98,33 @@ following call'
 ```javascript
 $(function(){
   $('.dismissible').dismissible({
-    success: function(helper){
+    dismiss: function(helper){
       helper.slideUp(); //'helper' is the jQuery-wrapped element
     }
   });
 });
 ```
+
+If you are working with restorable helpers the helper will be hidden instead
+and a show link will be revealed.
+There's a second callback when the show event was invoked as well.
+
+```javascript
+$(function(){
+  $('.dismissible').dismissible({
+    dismiss: function(helper){
+      helper.slideUp(); //'helper' is the jQuery-wrapped element
+    },
+    show: function(helper){
+      helper.slideDown();
+    }
+  });
+});
+```
+
 ### Using authenticated user ###
 
-DismissibleHelpers will store the dismissed helpers on a model. 
+DismissibleHelpers will store the dismissed helpers on a model.
 If the helper method `current_user` is available, DismissibleHelpers
 will use this to retrieve the current user/account.
 
