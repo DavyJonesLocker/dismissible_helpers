@@ -7,31 +7,46 @@ class DismissibleHelpers::ContentBuilder
     self.new(*args).build
   end
 
-  def initialize(name, contents=nil)
+  def initialize(name, contents=nil, options={})
     @name = name
     @contents = contents
+    @options = options
   end
 
   def build
     options = {}
     options[:class] = 'dismissible'
-    options[:data] = {:dismissible_name => @name}
-    html = [content_str, close_str].join.html_safe
+    options[:data] = {:dismissible_name => @name, :restorable => restorable?}
+    html = build_markup
     content_tag :div, html, options
   end
 
-  private
+  def build_markup
+    return [content_str, dismissed? ? '' : close_str].join.html_safe
+  end
+
+  protected
+
+  def restorable?
+    return false
+  end
+
+  def dismissed?
+    return @options[:dismissed]
+  end
 
   def content_str
-    @content_str ||= if @contents
-                       @contents
-                     else
-                       t(@name)
-                     end
+    @content_str ||= begin
+      content = if @contents
+                  @contents
+                else
+                  t(@name)
+                end
+      dismissed? ? nil : content
+    end
   end
 
   def close_str
     content_tag(:a, I18n.t(:"dismissible_helpers.actions.close"), :class => 'close', :href => '#')
   end
-
 end
