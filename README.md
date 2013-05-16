@@ -131,7 +131,7 @@ will use this to retrieve the current user/account.
 The model should have an attribute called `dismissed_helpers` which should
 be an array type. You can use ActiveRecord's serialization to achieve this:
 
- 1. Add this `dismissed_helpers` column as a `text` column
+First add this `dismissed_helpers` column as a `text` column
 
 ```ruby
 class AddDismissedHelpersToAccounts < ActiveRecord::Migration
@@ -145,7 +145,7 @@ class AddDismissedHelpersToAccounts < ActiveRecord::Migration
 end
 ```
 
- 2. Add the serization call to the model
+Then add the serization call to the model
 
 ```ruby
 class Account < ActiveRecord::Base
