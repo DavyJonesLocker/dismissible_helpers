@@ -9,6 +9,7 @@ feature 'Signed in user', :js => true do
     page.should_not have_content 'Hello world'
     visit root_path
     page.should_not have_content 'Hello world'
+    page.should_not have_selector '.dismissible'
     visit sign_out_path
     page.should have_content 'Hello world'
   end

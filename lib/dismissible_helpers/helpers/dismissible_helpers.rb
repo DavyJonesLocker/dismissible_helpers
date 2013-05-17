@@ -3,8 +3,10 @@ module DismissibleHelpers::Helpers::DismissibleHelpers
   def render_dismissible_helper(name, options = {}, &block)
     contents = block_given? ? capture(&block) : nil
     restorable = options.fetch(:restorable) { false }
-    builder = restorable ? DismissibleHelpers::RestorableContentBuilder : DismissibleHelpers::ContentBuilder
-    builder.build(name, contents, options.merge({ dismissed: dismissed?(name) }))
+    if restorable || !dismissed?(name)
+      builder = restorable ? DismissibleHelpers::RestorableContentBuilder : DismissibleHelpers::ContentBuilder
+      builder.build(name, contents, options.merge({ dismissed: dismissed?(name) }))
+    end
   end
 
   private
