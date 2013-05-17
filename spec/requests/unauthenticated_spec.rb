@@ -9,6 +9,7 @@ feature 'Signed out user', :js => true do
     page.should_not have_content 'Hello world'
     visit root_path
     page.should_not have_content 'Hello world'
+    page.should_not have_selector '.dismissible'
   end
 
   scenario 'Sees, dismisses and restores a restorable helper', :js => true do
