@@ -3,21 +3,23 @@
     options = {} if options == undefined
     options.closeSelector ?= '.close'
     options.openSelector ?= '.open'
-    options.name = @.attr('data-dismissible-name')
 
-    @find(options.closeSelector).click (event) ->
-      $target = $ event.target
-      $helper = $target.parent()
-      event.preventDefault()
 
-      $helper.dismiss(options)
+    @each ->
+      $this = $ @
+      $this.find(options.closeSelector).click (event) ->
+        $target = $ event.target
+        $helper = $target.parent()
+        event.preventDefault()
 
-    @find(options.openSelector).click (event) ->
-      $target = $ event.target
-      $helper = $target.parent()
-      event.preventDefault()
+        $helper.dismiss(options)
 
-      $helper.restore(options)
+      $this.find(options.openSelector).click (event) ->
+        $target = $ event.target
+        $helper = $target.parent()
+        event.preventDefault()
+
+        $helper.restore(options)
 
   $.fn.dismiss = (options) ->
     restorable = @.attr('data-restorable') is 'true'
@@ -26,7 +28,7 @@
       type:      'POST'
       dataType:  'json'
       data:
-        helper: options.name
+        helper: @.attr('data-dismissible-name')
       success: =>
         if options? and options.dismiss != undefined
           options.dismiss(@)
@@ -40,7 +42,7 @@
 
   $.fn.restore = (options) ->
     $.rails.ajax
-      url:       '/dismissed_helpers/' + options.name
+      url:       '/dismissed_helpers/' + @.attr('data-dismissible-name')
       type:      'DELETE'
       dataType:  'json'
       success: =>
