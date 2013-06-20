@@ -22,7 +22,7 @@ Dir[File.join(ENGINE_RAILS_ROOT, 'spec/config/**/*.rb')].each { |f| require f }
 
 RSpec.configure do |config|
   config.mock_with :mocha
-  config.use_transactional_fixtures = true
+  config.use_transactional_fixtures = false
   config.include Factory::Syntax::Methods
 
   config.before(:each, :type => :request) do

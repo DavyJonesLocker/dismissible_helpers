@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
 
   private
 
-  def after_successful_sign_in_url(identity)
+  def after_successful_sign_in_url
     root_path
   end
 end

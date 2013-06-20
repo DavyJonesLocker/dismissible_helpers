@@ -2,7 +2,7 @@
 class CreateEasyAuthIdentities < ActiveRecord::Migration
   def change
     create_table :identities do |t|
-      t.string  :username
+      t.string  :uid
       t.string  :token
       t.string  :account_type
       t.integer :account_id
@@ -12,7 +12,7 @@ class CreateEasyAuthIdentities < ActiveRecord::Migration
       t.timestamps
     end
 
-    [:username, :reset_token, :remember_token].each do |column|
+    [:uid, :reset_token, :remember_token].each do |column|
       add_index :identities, column
     end
   end
