@@ -1,7 +1,6 @@
 rvm:
   - 1.9.3
   - 2.0.0
-  - jruby-19mode
 
 before_script:
   - cp spec/dummy/config/database.yml.example spec/dummy/config/database.yml

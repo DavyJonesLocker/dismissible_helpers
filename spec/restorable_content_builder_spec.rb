@@ -1,6 +1,9 @@
 require 'spec_helper'
 
 describe DismissibleHelpers::RestorableContentBuilder do
+  # Temporarily look for hidden elements to make sure that we are rendering hidden links
+  before { Capybara.ignore_hidden_elements = false }
+  after  { Capybara.ignore_hidden_elements = true }
 
   describe '#build' do
     context 'given a string' do
@@ -30,5 +33,4 @@ describe DismissibleHelpers::RestorableContentBuilder do
       close_el[:href].should == '#'
     end
   end
-
 end
