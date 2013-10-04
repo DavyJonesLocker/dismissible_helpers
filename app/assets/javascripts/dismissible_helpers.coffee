@@ -3,6 +3,7 @@
     options = {} if options == undefined
     options.closeSelector ?= '.close'
     options.openSelector ?= '.open'
+    options.url ?= '/dismissed_helpers'
 
 
     @each ->
@@ -24,7 +25,7 @@
   $.fn.dismiss = (options) ->
     restorable = @.attr('data-restorable') is 'true'
     $.rails.ajax
-      url:       '/dismissed_helpers'
+      url:       options.url
       type:      'POST'
       dataType:  'json'
       data:
@@ -42,7 +43,7 @@
 
   $.fn.restore = (options) ->
     $.rails.ajax
-      url:       '/dismissed_helpers/' + @.attr('data-dismissible-name')
+      url:       options.url + '/' + @.attr('data-dismissible-name')
       type:      'DELETE'
       dataType:  'json'
       success: =>
