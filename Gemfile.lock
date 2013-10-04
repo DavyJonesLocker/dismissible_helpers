@@ -54,14 +54,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.1)
-    columnize (0.3.6)
     database_cleaner (0.9.1)
-    debugger (1.5.0)
-      columnize (>= 0.3.1)
-      debugger-linecache (~> 1.2.0)
-      debugger-ruby_core_source (~> 1.2.0)
-    debugger-linecache (1.2.0)
-    debugger-ruby_core_source (1.2.0)
     diff-lcs (1.2.1)
     easy_auth (0.2.1)
       bcrypt-ruby (~> 3.0.0)
@@ -172,7 +165,6 @@ DEPENDENCIES
   capybara
   coffee-rails
   database_cleaner
-  debugger
   dismissible_helpers!
   easy_auth-password
   factory_girl (~> 2.6.0)
