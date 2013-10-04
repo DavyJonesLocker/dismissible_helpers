@@ -13,4 +13,3 @@ gem 'easy_auth', :github => 'dockyard/easy_auth', ref: 'f24ce212d28bde1c8d06d704
 gem 'easy_auth-password', :github => 'dockyard/easy_auth-password'
 
 gem 'fivemat'
-gem 'byebug'
