@@ -1,12 +1,11 @@
 rvm:
   - 1.9.3
   - 2.0.0
-  - jruby-19mode
 
 before_script:
   - cp spec/dummy/config/database.yml.example spec/dummy/config/database.yml
   - RAILS_ENV=test bundle exec rake db:migrate
 
 notifications:
-  email: 
+  email:
     - git@danmcclain.net
