@@ -23,7 +23,7 @@ Dir[File.join(ENGINE_RAILS_ROOT, 'spec/config/**/*.rb')].each { |f| require f }
 RSpec.configure do |config|
   config.mock_with :mocha
   config.use_transactional_fixtures = true
-  config.include Factory::Syntax::Methods
+  config.include FactoryGirl::Syntax::Methods
 
   config.before(:each, :type => :request) do
     Dir[File.join(ENGINE_RAILS_ROOT, 'spec/requests/step_helpers/**/*.rb')].each { |f| require f }

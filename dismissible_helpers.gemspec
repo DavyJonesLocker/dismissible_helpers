@@ -16,21 +16,20 @@ Gem::Specification.new do |s|
   s.files = Dir['{app,config,db,lib}/**/*'] + ['Rakefile', 'README.md']
   s.test_files = Dir['spec/**/*']
 
-  s.add_dependency 'rails', '~> 3.2.0'
+  s.add_dependency 'rails', '~> 4.0'
 
   if RUBY_PLATFORM =~ /java/
-    s.add_development_dependency 'jdbc-sqlite3'
-    s.add_development_dependency 'activerecord-jdbcsqlite3-adapter'
+    s.add_development_dependency 'activerecord-jdbcpostgresql-adapter', '~> 1.3'
   else
-    s.add_development_dependency 'sqlite3'
+    s.add_development_dependency 'pg', '~> 0.17'
   end
-  s.add_development_dependency 'rspec-rails'
-  s.add_development_dependency 'capybara'
-  s.add_development_dependency 'fakeweb'
-  s.add_development_dependency 'poltergeist'
-  s.add_development_dependency 'database_cleaner'
-  s.add_development_dependency 'factory_girl_rails', '~> 1.7.0'
-  s.add_development_dependency 'factory_girl', '~> 2.6.0'
-  s.add_development_dependency 'mocha', '~> 0.10.5'
+  s.add_development_dependency 'rspec-rails', '~> 2.14'
+  s.add_development_dependency 'capybara', '~> 2.2'
+  s.add_development_dependency 'fakeweb', '~> 1.3'
+  s.add_development_dependency 'poltergeist', '~> 1.5'
+  s.add_development_dependency 'database_cleaner', '~> 1.2'
+  s.add_development_dependency 'factory_girl_rails', '~> 4.3'
+  s.add_development_dependency 'factory_girl', '~> 4.3'
+  s.add_development_dependency 'mocha', '~> 1.0'
   s.add_development_dependency 'launchy'
 end
