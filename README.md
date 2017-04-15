@@ -74,7 +74,7 @@ This will allow the user to hide the helper, as well as display a restore link t
 
 ### Including the routes ###
 
-Add `dismissible_helpers_routes` to your `config/routes.rb` file.
+Add `dismissible_helper_routes` to your `config/routes.rb` file.
 
 ### Including the JavaScript ##
 
